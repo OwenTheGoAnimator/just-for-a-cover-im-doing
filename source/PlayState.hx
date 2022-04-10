@@ -7,6 +7,7 @@ import Discord.DiscordClient;
 import Section.SwagSection;
 import Song.SwagSong;
 import WiggleEffect.WiggleEffectType;
+import BlendModeEffect.BlendModeShader;
 import flixel.FlxBasic;
 import flixel.FlxCamera;
 import flixel.FlxG;
@@ -422,6 +423,74 @@ class PlayState extends MusicBeatState
 
 		switch (curStage)
 		{
+			case'scott':
+				for (i in 0...6)
+				{
+					//first time using emitters sorry if i broke an unspeakable rule or something YES ziffy you did you idiot
+					//hi ziffy hi fabs
+					// hi guys i can say Nigger
+					//thanks clow
+					//wow really a "RACISMS" and a "MANIPULATIONS" moment clowfoe
+					//
+					emitter = new FlxEmitter(-2080.5, 1532.4);
+					emitter.launchMode = FlxEmitterMode.SQUARE;
+					emitter.velocity.set(-50, -400, 50, -800, -100, 0, 100, -800);
+					emitter.scale.set(4, 4, 4, 4, 0, 0, 0, 0);
+					emitter.drag.set(0, 0, 0, 0, 5, 5, 10, 10);
+					emitter.width = 4787.45;
+					emitter.alpha.set(1, 1);
+					emitter.lifespan.set(2, 2.5);
+					emitter.loadParticles(Paths.image('backgrounds/scott/ember1'), 500, 16, true);
+						
+					emitter.start(false, FlxG.random.float(0.3, 0.4), 100000);
+					add(emitter);
+				}	
+
+				for (i in 0...6)
+				{
+					//first time using emitters sorry if i broke an unspeakable rule or something YES ziffy you did you idiot
+					emitter2 = new FlxEmitter(-2080.5, 1532.4);
+					emitter2.launchMode = FlxEmitterMode.SQUARE;
+					emitter2.velocity.set(-50, -300, 50, -700, -100, 0, 100, -700);
+					emitter2.scale.set(4, 4, 4, 4, 0, 0, 0, 0);
+					emitter2.drag.set(0, 0, 0, 0, 5, 5, 10, 10);
+					emitter2.width = 4787.45;
+					emitter2.alpha.set(1, 1);
+					emitter2.lifespan.set(2, 2.5);
+					emitter2.loadParticles(Paths.image('backgrounds/scott/ember2'), 500, 16, true);
+						
+					emitter2.start(false, FlxG.random.float(0.4, 0.5), 100000);
+					add(emitter2);
+				}	
+
+				lightgrad1 = new BGSprite('backgrounds/' + curStage + '/grad1', 0, 150, 0.5, 0.5);
+				lightgrad1.blend = BlendMode.ADD;
+				lightgrad1.setGraphicSize(Std.int(lightgrad1.width * 1.3));
+				add(lightgrad1);
+				lightgrad2 = new BGSprite('backgrounds/' + curStage + '/grad2', 0, 150, 0.5, 0.5);
+				lightgrad2.blend = BlendMode.ADD;
+				lightgrad2.setGraphicSize(Std.int(lightgrad2.width * 1.3));
+				add(lightgrad2);
+				lightgrad3 = new BGSprite('backgrounds/' + curStage + '/grad3', 0, 150, 0.5, 0.5);
+				lightgrad3.blend = BlendMode.ADD;
+				lightgrad3.setGraphicSize(Std.int(lightgrad3.width * 1.3));
+				add(lightgrad3);		
+
+				lightgrad1.alpha = 0;
+				lightgrad2.alpha = 0;
+				lightgrad3.alpha = 0;
+
+				lightning = new BGSprite('backgrounds/' + curStage + '/lightning', 330, 250, 0.6, 0.6, ['blue', 'pink', 'purple']);
+				lightning.setGraphicSize(Std.int(lightning.width * 2));
+				add(lightning);
+
+				vignette = new BGSprite('backgrounds/' + curStage + '/gradient', 0, 0, 0, 0);
+				vignette.setGraphicSize(Std.int(vignette.width * 1.3));
+				vignette.updateHitbox();
+				vignette.screenCenter();
+				vignette.alpha = 0;
+				add(vignette);
+				
 			case 'stage': //Week 1
 				var bg:BGSprite = new BGSprite('stageback', -600, -200, 0.9, 0.9);
 				add(bg);
@@ -708,6 +777,47 @@ class PlayState extends MusicBeatState
 		
 		if(curStage == 'spooky') {
 			add(halloweenWhite);
+		}
+	
+		if(curStage == 'scott'){
+			dust = new FlxBackdrop(Paths.image('backgrounds/scott/dust'), 5.3, 5.3, true, true);
+			dust.setPosition(3.35, 25);
+			dust.antialiasing = true;
+			dust.updateHitbox();
+			dust.blend = BlendMode.ADD;
+			dust.alpha = 0.6;
+			add(dust);
+			dustFG = new FlxBackdrop(Paths.image('backgrounds/scott/dustFG'), 6.4, 6.4, true, true);
+			dustFG.setPosition(-24.45, 17.6);
+			dustFG.antialiasing = true;
+			dustFG.updateHitbox();
+			dustFG.blend = BlendMode.ADD;
+			dustFG.alpha = 0.5;
+			add(dustFG);
+
+			lightgrad4 = new BGSprite('backgrounds/' + curStage + '/grad1', 0, 250, 0.5, 0.5);
+			lightgrad4.blend = BlendMode.ADD;
+			lightgrad4.setGraphicSize(Std.int(lightgrad4.width * 1.3));
+			add(lightgrad4);
+			lightgrad5 = new BGSprite('backgrounds/' + curStage + '/grad2', 0, 250, 0.5, 0.5);
+			lightgrad5.blend = BlendMode.ADD;
+			lightgrad5.setGraphicSize(Std.int(lightgrad5.width * 1.3));
+			add(lightgrad5);
+			lightgrad6 = new BGSprite('backgrounds/' + curStage + '/grad3', 0, 250, 0.5, 0.5);
+			lightgrad6.blend = BlendMode.ADD;
+			lightgrad6.setGraphicSize(Std.int(lightgrad6.width * 1.3));
+			add(lightgrad6);
+
+			lightgrad7 = new BGSprite('backgrounds/' + curStage + '/grad4', 0, 150, 0.5, 0.5);
+			lightgrad7.blend = BlendMode.ADD;
+			lightgrad7.setGraphicSize(Std.int(lightgrad7.width * 1.3));
+			add(lightgrad7);
+
+			lightgrad4.alpha = 0;
+			lightgrad5.alpha = 0;
+			lightgrad6.alpha = 0;
+			lightgrad7.alpha = 0;
+
 		}
 
 		#if LUA_ALLOWED
@@ -1039,7 +1149,7 @@ class PlayState extends MusicBeatState
 		scoreTxt.visible = !ClientPrefs.hideHud;
 		add(scoreTxt);
 
-		botplayTxt = new FlxText(400, timeBarBG.y + 55, FlxG.width - 800, "BOTPLAY", 32);
+		botplayTxt = new FlxText(400, timeBarBG.y + 55, FlxG.width - 800, "SUBSCRIBE", 32);
 		botplayTxt.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		botplayTxt.scrollFactor.set();
 		botplayTxt.borderSize = 1.25;
@@ -2176,12 +2286,50 @@ class PlayState extends MusicBeatState
 		/*if (FlxG.keys.justPressed.NINE)
 		{
 			iconP1.swapOldIcon();
-		}*/
+		}*/	
+		if(curStage == 'scott' && lightning.animation.finished) lightning.alpha = 0;
+
+		if(curStage == 'fright'){
+			if(glitchSixAM.animation.curAnim.curFrame == 5){
+				if(canGlitchSalvage){
+					glitchSixAM.alpha = 1;
+					glitch6amY = FlxG.random.int(300, 380);
+					sixAM.animation.play('chime');
+					glitchSixAM.y = glitch6amY;
+				}
+			}
+
+			if(nightStart){
+				if(nightNewGlitch.animation.curAnim.curFrame == 3){
+					nightNewGlitch.alpha = 0;
+					new FlxTimer().start(3, function(tmr:FlxTimer){
+						FlxTween.tween(nightNewSprite, {alpha: 0}, 1);
+					});
+				}
+			}
+		}
 
 		callOnLuas('onUpdate', [elapsed]);
 
 		switch (curStage)
 		{
+			case 'scott':
+				for (i in 0...opponentStrums.length) {
+					opponentStrums.members[i].alpha = 0;
+				}
+				if(dust != null) {
+					dust.y = FlxMath.lerp(dust.y, dust.y + 17, CoolUtil.boundTo(elapsed * 9, 0, 1));
+					dust.x = FlxMath.lerp(dust.x, dust.x - 27, CoolUtil.boundTo(elapsed * 9, 0, 1));
+				}
+
+				if(dustFG != null) {
+					dustFG.y = FlxMath.lerp(dustFG.y, dustFG.y + 29, CoolUtil.boundTo(elapsed * 9, 0, 1));
+					dustFG.x = FlxMath.lerp(dustFG.x, dustFG.x - 33, CoolUtil.boundTo(elapsed * 9, 0, 1));
+				}
+
+				dust.alpha = FlxMath.lerp(0.6, dust.alpha, CoolUtil.boundTo(1 - (elapsed * 3.125), 0, 1));
+				dustFG.alpha = FlxMath.lerp(0.5, dustFG.alpha, CoolUtil.boundTo(1 - (elapsed * 3.125), 0, 1));
+				
 			case 'schoolEvil':
 				if(!ClientPrefs.lowQuality && bgGhouls.animation.curAnim.finished) {
 					bgGhouls.visible = false;
@@ -2320,30 +2468,60 @@ class PlayState extends MusicBeatState
 
 		if (controls.PAUSE && startedCountdown && canPause)
 		{
-			var ret:Dynamic = callOnLuas('onPause', []);
-			if(ret != FunkinLua.Function_Stop) {
-				persistentUpdate = false;
-				persistentDraw = true;
-				paused = true;
+			if(curStage == 'scott'){
+				FlxG.sound.play(Paths.sound('noPause'));
 
-				// 1 / 1000 chance for Gitaroo Man easter egg
-				/*if (FlxG.random.bool(0.1))
-				{
-					// gitaroo man easter egg
-					cancelMusicFadeTween();
-					MusicBeatState.switchState(new GitarooPause());
+				var scottPauseSpr:FlxSprite = new FlxSprite(500,-240).loadGraphic(Paths.image('backgrounds/scott/Scott_Cawthon'));
+				scottPauseSpr.antialiasing = true;
+				scottPauseSpr.setGraphicSize(Std.int(scottPauseSpr.width * 0.3));
+				add(scottPauseSpr);
+				scottPauseSpr.cameras = [camHUD];
+				scottPauseSpr.alpha = 0;
+
+				var noPauseButt:FlxSprite = new FlxSprite(400,360).loadGraphic(Paths.image('backgrounds/scott/nopause'));
+				noPauseButt.antialiasing = false;
+				noPauseButt.setGraphicSize(Std.int(noPauseButt.width * 1));
+				add(noPauseButt);
+				noPauseButt.screenCenter(X);
+				noPauseButt.x -= 40;
+				noPauseButt.cameras = [camHUD];
+				noPauseButt.alpha = 0;
+
+				FlxTween.tween(scottPauseSpr, {alpha: 1}, 0.2);
+				FlxTween.tween(noPauseButt, {alpha: 1}, 0.2);
+				new FlxTimer().start(2, function(tmr:FlxTimer){
+					FlxTween.tween(scottPauseSpr, {alpha: 0}, 0.2);
+					FlxTween.tween(noPauseButt, {alpha: 0}, 0.2);
+				});
+			}
+			else{
+				var ret:Dynamic = callOnLuas('onPause', []);
+				if(ret != FunkinLua.Function_Stop) {
+					persistentUpdate = false;
+					persistentDraw = true;
+					paused = true;
+
+					// 1 / 1000 chance for Gitaroo Man easter egg
+					if (FlxG.random.bool(0.1))
+					{
+						// gitaroo man easter egg
+						cancelFadeTween();
+						CustomFadeTransition.nextCamera = camOther;
+						MusicBeatState.switchState(new GitarooPause());
+					}
+					else {
+						if(FlxG.sound.music != null) {
+							FlxG.sound.music.pause();
+							vocals.pause();
+						}
+						PauseSubState.transCamera = camOther;
+						openSubState(new PauseSubState(boyfriend.getScreenPosition().x, boyfriend.getScreenPosition().y));
+					}
+				
+					#if desktop
+					DiscordClient.changePresence(detailsPausedText, SONG.song + " (" + storyDifficultyText + ")", iconP2.getCharacter(), curPortrait);
+					#end
 				}
-				else {*/
-				if(FlxG.sound.music != null) {
-					FlxG.sound.music.pause();
-					vocals.pause();
-				}
-				openSubState(new PauseSubState(boyfriend.getScreenPosition().x, boyfriend.getScreenPosition().y));
-				//}
-		
-				#if desktop
-				DiscordClient.changePresence(detailsPausedText, SONG.song + " (" + storyDifficultyText + ")", iconP2.getCharacter());
-				#end
 			}
 		}
 
@@ -4222,6 +4400,43 @@ class PlayState extends MusicBeatState
 	override function beatHit()
 	{
 		super.beatHit();
+		
+		if(curStage == 'scott' && curBeat % lightningTimer == 0){
+			lightning.flipX = FlxG.random.bool(50);
+
+			vignette.alpha = 0;
+			if(lightningTimer >= 2) FlxTween.tween(vignette, {alpha: 0.4}, 0.4 * lightningTimer);
+			if(lightningTimer < 2){
+				lightgrad7.alpha = 0.7;
+				if(lightTween != null) lightTween.cancel();
+				lightTween = FlxTween.tween(lightgrad7, {alpha: 0}, 0.4 * lightningTimer);
+			} 
+			lightning.alpha = 1;
+
+			switch(FlxG.random.int(0, 2)){
+				case 0:
+					lightning.x = FlxG.random.int(-200, 1000);
+					lightning.animation.play('blue', true);
+					lightgrad1.alpha = 0.9;
+					FlxTween.tween(lightgrad1, {alpha: 0}, 0.4 * lightningTimer);
+					lightgrad4.alpha = 0.6;
+					FlxTween.tween(lightgrad4, {alpha: 0}, 0.4 * lightningTimer);
+				case 1:
+					lightning.x = FlxG.random.int(-200, 1000);
+					lightning.animation.play('pink', true);
+					lightgrad2.alpha = 0.9;
+					FlxTween.tween(lightgrad2, {alpha: 0}, 0.4 * lightningTimer);
+					lightgrad5.alpha = 0.6;
+					FlxTween.tween(lightgrad5, {alpha: 0}, 0.4 * lightningTimer);
+				case 2:
+					lightning.x = FlxG.random.int(-200, 1000);
+					lightning.animation.play('purple', true);
+					lightgrad3.alpha = 0.9;
+					FlxTween.tween(lightgrad3, {alpha: 0}, 0.4 * lightningTimer);
+					lightgrad6.alpha = 0.6;
+					FlxTween.tween(lightgrad6, {alpha: 0}, 0.4 * lightningTimer);
+			}
+		}
 
 		if(lastBeatHit >= curBeat) {
 			//trace('BEAT HIT: ' + curBeat + ', LAST HIT: ' + lastBeatHit);
@@ -4282,6 +4497,11 @@ class PlayState extends MusicBeatState
 
 		switch (curStage)
 		{
+			case 'scott':
+				if(curBeat % 2 == 0) {
+					dustFG.alpha = 1;
+					dust.alpha = 1;
+				}
 			case 'school':
 				if(!ClientPrefs.lowQuality) {
 					bgGirls.dance();
