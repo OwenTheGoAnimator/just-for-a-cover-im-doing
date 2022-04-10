@@ -25,6 +25,7 @@ import flixel.addons.transition.FlxTransitionableState;
 import flixel.graphics.atlas.FlxAtlas;
 import flixel.graphics.frames.FlxAtlasFrames;
 import flixel.group.FlxGroup.FlxTypedGroup;
+import flixel.effects.particles.FlxEmitter;
 import flixel.math.FlxMath;
 import flixel.math.FlxPoint;
 import flixel.math.FlxRect;
@@ -215,6 +216,22 @@ class PlayState extends MusicBeatState
 	var bottomBoppers:BGSprite;
 	var santa:BGSprite;
 	var heyTimer:Float;
+	
+	var lightningTimer:Int = 2;
+	var lightning:BGSprite;
+	var lightgrad1:BGSprite;
+	var lightgrad2:BGSprite;
+	var lightgrad3:BGSprite;
+	var lightgrad4:BGSprite;
+	var lightgrad5:BGSprite;
+	var lightgrad6:BGSprite;
+	var lightgrad7:BGSprite;
+	var lightTween:FlxTween;
+	var dust:FlxBackdrop;
+	var dustFG:FlxBackdrop;
+	var emitter:FlxEmitter;
+	var emitter2:FlxEmitter;
+	var vignette:BGSprite;
 
 	var bgGirls:BackgroundGirls;
 	var wiggleShit:WiggleEffect = new WiggleEffect();
